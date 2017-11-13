@@ -4,7 +4,7 @@ function listaProdutos($conexao) {
     $resultado = mysqli_query($conexao, "select * from produtos");
 
     while ($produto = mysqli_fetch_assoc($resultado)) {
-        array_push($produtos, $produto)
+        array_push($produtos, $produto);
     }
 
     return $produtos;
