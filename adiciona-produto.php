@@ -1,5 +1,6 @@
 <?php
 include 'cabecalho.php';
+include 'conecta.php';
 
 function insereProduto($conexao, $nome, $preco) {
     $query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
@@ -8,8 +9,6 @@ function insereProduto($conexao, $nome, $preco) {
 
 $nome = $_GET["nome"];
 $preco = $_GET["preco"];
-
-$conexao = mysqli_connect('localhost', 'root', '', 'loja');
 
 if (insereProduto($conexao, $nome, $preco)) {
 ?>
