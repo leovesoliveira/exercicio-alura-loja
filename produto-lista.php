@@ -20,7 +20,12 @@ endif
             <td><?= $produto['nome'] ?></td>
             <td><?= $produto['preco'] ?></td>
             <td><?= substr($produto['descricao'], 0, 30) ?></td>
-            <td><a href="exclui-produto.php?id=<?= $produto['id'] ?>" class="btn btn-danger">Excluir</a></td>
+            <td>
+                <form action="exclui-produto.php" method="post">
+                    <input type="hidden" name="id" value="<?= $produto['id'] ?>">
+                    <button class="btn btn-danger">Excluir</button>
+                </form>
+            </td>
         </tr>
     <?php
     endforeach

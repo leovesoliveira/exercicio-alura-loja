@@ -2,7 +2,7 @@
 
 <h1>Formulário de Cadastro</h1>
 
-<form class="produto-formulario" action="adiciona-produto.php">
+<form class="produto-formulario" action="adiciona-produto.php" method="post">
     <div class="form-group row">
         <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
         <div class="col-sm-10">
