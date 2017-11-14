@@ -19,6 +19,7 @@ endif
         <tr>
             <td><?= $produto['nome'] ?></td>
             <td><?= $produto['preco'] ?></td>
+            <td><?= substr($produto['descricao'], 0, 30) ?></td>
             <td><a href="exclui-produto.php?id=<?= $produto['id'] ?>" class="btn btn-danger">Excluir</a></td>
         </tr>
     <?php

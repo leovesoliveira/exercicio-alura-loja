@@ -18,6 +18,13 @@
     </div>
 
     <div class="form-group row">
+        <label for="descricao" class="col-sm-2 col-form-label">Descrição:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="descricao" id="descricao" placeholder="Descrição do Produto..." /></textarea><br/>
+        </div>
+    </div>
+
+    <div class="form-group row">
         <div class="col-sm-10 offset-sm-2">
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
