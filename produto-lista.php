@@ -18,6 +18,7 @@ endif
             <th scope="col">Nome</th>
             <th scope="col">Preço</th>
             <th scope="col">Categoria</th>
+            <th scope="col">Usado</th>
             <th scope="col">Descrição</th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -31,6 +32,7 @@ endif
             <td><?= $produto['nome'] ?></td>
             <td><?= $produto['preco'] ?></td>
             <td><?= $produto['categoria_nome'] ?></td>
+            <td style="font-size: 25px; font-weight: bold; text-align:center;"><?= $produto['usado'] ? "•" : "" ?></td>
             <td><?= substr($produto['descricao'], 0, 30) ?></td>
             <td><a href="produto-edita-formulario.php?id=<?= $produto['id'] ?>" class="btn btn-primary">Editar</a></td>
             <td>
