@@ -20,6 +20,7 @@ endif
             <th scope="col">Categoria</th>
             <th scope="col">Descrição</th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,7 @@ endif
             <td><?= $produto['preco'] ?></td>
             <td><?= $produto['categoria_nome'] ?></td>
             <td><?= substr($produto['descricao'], 0, 30) ?></td>
+            <td><a href="produto-edita-formulario.php?id=<?= $produto['id'] ?>" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="exclui-produto.php" method="post">
                     <input type="hidden" name="id" value="<?= $produto['id'] ?>">
