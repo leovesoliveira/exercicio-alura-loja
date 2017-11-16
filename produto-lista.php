@@ -13,12 +13,23 @@ endif
 ?>
 
 <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Descrição</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
     <?php
     foreach ($produtos as $produto) :
     ?>
         <tr>
             <td><?= $produto['nome'] ?></td>
             <td><?= $produto['preco'] ?></td>
+            <td><?= $produto['categoria_nome'] ?></td>
             <td><?= substr($produto['descricao'], 0, 30) ?></td>
             <td>
                 <form action="exclui-produto.php" method="post">
@@ -30,6 +41,7 @@ endif
     <?php
     endforeach
     ?>
+    </tbody>
 </table>
 
 <?php include 'rodape.php'; ?>

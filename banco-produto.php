@@ -1,7 +1,7 @@
 <?php
 function listaProdutos($conexao) {
     $produtos = array();
-    $resultado = mysqli_query($conexao, "select * from produtos");
+    $resultado = mysqli_query($conexao, "select p.*, c.nome as categoria_nome from produtos as p join categorias as c on p. categoria_id = c.id");
 
     while ($produto = mysqli_fetch_assoc($resultado)) {
         array_push($produtos, $produto);
@@ -10,8 +10,8 @@ function listaProdutos($conexao) {
     return $produtos;
 }
 
-function insereProduto($conexao, $nome, $preco, $descricao) {
-    $query = "insert into produtos (nome, preco, descricao) values ('{$nome}', {$preco}, '{$descricao}')";
+function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado) {
+    $query = "insert into produtos (nome, preco, descricao, categoria_id, usado) values ('{$nome}', {$preco}, '{$descricao}', '{$categoria_id}', '{$usado}')";
     return mysqli_query($conexao, $query);
 }
 
