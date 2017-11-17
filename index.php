@@ -2,6 +2,11 @@
 
 <h1>Olá Mundo, Bem Vindo a Leoves'Store!</h1>
 
+<?php if (isset($_COOKIE["usuario_logado"])) { ?>
+<div class="alert alert-dark text-center" role="alert">
+    Você está logado com <strong><?= $_COOKIE["usuario_logado"] ?></strong>
+</div>
+<?php } else { ?>
 <div class="row">
     <div class="offset-md-4 col-md-4">
         <div class="card text-center">
@@ -33,5 +38,6 @@
         </div>
     </div>
 </div>
+<?php } ?>
 
 <?php include 'rodape.php'; ?>
