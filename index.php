@@ -1,12 +1,26 @@
-<?php include 'cabecalho.php'; ?>
+<?php
+include 'cabecalho.php';
+include 'logica-usuario.php';
+?>
+
+<?php if (isset($_GET["falhaDeSeguranca"])) : ?>
+<div class="alert alert-danger text-center" role="alert">Você não tem acesso a essa funcionalidade!</div>
+<?php endif ?>
+
+<?php if (isset($_GET["login"]) && $_GET["login"]==true) : ?>
+<p class="alert alert-success text-center">Logado com sucesso!</p>
+<?php endif ?>
+
+<?php if (isset($_GET["login"]) && $_GET["login"]==false) : ?>
+<p class="alert alert-danger text-center">Usuário ou senha inválido!</p>
+<?php endif ?>
 
 <h1>Olá Mundo, Bem Vindo a Leoves'Store!</h1>
 
-<?php if (isset($_COOKIE["usuario_logado"])) { ?>
-<div class="alert alert-dark text-center" role="alert">
-    Você está logado com <strong><?= $_COOKIE["usuario_logado"] ?></strong>
-</div>
+<?php if (usuarioEstaLogado()) { ?>
+<div class="alert alert-dark text-center" role="alert">Você está logado com <strong><?= $_COOKIE["usuario_logado"] ?></strong></div>
 <?php } else { ?>
+
 <div class="row">
     <div class="offset-md-4 col-md-4">
         <div class="card text-center">
@@ -15,13 +29,7 @@
             </div>
 
             <div class="card-body">
-                <?php if (isset($_GET["login"]) && $_GET["login"]==true) : ?>
-                <p class="alert-success text-center">Logado com sucesso!</p>
-                <?php endif ?>
 
-                <?php if (isset($_GET["login"]) && $_GET["login"]==false) : ?>
-                <p class="alert-danger text-center">Usuário ou senha inválido!</p>
-                <?php endif ?>
 
                 <form action="login.php" method="post">
                     <div class="form-group">
