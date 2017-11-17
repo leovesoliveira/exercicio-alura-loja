@@ -7,6 +7,10 @@ include 'logica-usuario.php';
 <div class="alert alert-danger text-center" role="alert">Você não tem acesso a essa funcionalidade!</div>
 <?php endif ?>
 
+<?php if (isset($_GET["logout"]) && $_GET["logout"]==true) : ?>
+<p class="alert alert-warning text-center">Você saiu do sistema!</p>
+<?php endif ?>
+
 <?php if (isset($_GET["login"]) && $_GET["login"]==true) : ?>
 <p class="alert alert-success text-center">Logado com sucesso!</p>
 <?php endif ?>
@@ -18,7 +22,10 @@ include 'logica-usuario.php';
 <h1>Olá Mundo, Bem Vindo a Leoves'Store!</h1>
 
 <?php if (usuarioEstaLogado()) { ?>
-<div class="alert alert-dark text-center" role="alert">Você está logado com <strong><?= $_COOKIE["usuario_logado"] ?></strong></div>
+<div class="alert alert-dark text-center" role="alert">
+    Você está logado com <strong><?= usuarioLogado() ?></strong>
+    | <a class="alert-link" href="logout.php">Sair</a>
+</div>
 <?php } else { ?>
 
 <div class="row">
