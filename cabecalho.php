@@ -6,16 +6,17 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div class="container">
             <a href="index.php" class="navbar-brand">Leoves'Store</a>
 
-            <div class="">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="produto-lista.php">Produtos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="produto-formulario.php">Adicionar</a></li>
                 </ul>
             </div>
+
+            <a class="btn btn-success" href="produto-formulario.php">Adicionar</a>
         </div>
     </div>
 
