@@ -11,6 +11,10 @@ include 'logica-usuario.php';
 <p class="alert alert-success text-center"><?= $_SESSION["success"] ?></p>
 <?php unset($_SESSION["success"]); endif ?>
 
+<?php if (isset($_SESSION["warning"])) : ?>
+<p class="alert alert-warning text-center"><?= $_SESSION["warning"] ?></p>
+<?php unset($_SESSION["warning"]); endif ?>
+
 <h1>Olá Mundo, Bem Vindo a Leoves'Store!</h1>
 
 <?php if (usuarioEstaLogado()) { ?>
