@@ -16,7 +16,7 @@ if (array_key_exists('usado', $_POST)) {
 
 if (editaProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado)) {
 ?>
-<p class="text-success">Produto <?php echo $nome; ?> foi editado com sucesso!</p>
+<div class="alert alert-success text-center" role="alert">Produto <strong><?php echo $nome; ?></strong> foi editado com sucesso!</div>
 <?php
 } else {
     $msgError = mysqli_error($conexao);
