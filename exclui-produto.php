@@ -1,7 +1,5 @@
 <?php
-include 'conecta.php';
-include 'banco-produto.php';
-include 'logica-usuario.php';
+require_once 'banco-produto.php';
 
 $id = $_POST['id'];
 excluiProduto($conexao, $id);

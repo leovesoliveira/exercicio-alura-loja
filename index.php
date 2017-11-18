@@ -1,6 +1,6 @@
 <?php
-include 'cabecalho.php';
-include 'logica-usuario.php';
+require_once 'cabecalho.php';
+require_once 'logica-usuario.php';
 ?>
 
 <h1>Olá Mundo, Bem Vindo a Leoves'Store!</h1>
@@ -39,4 +39,4 @@ include 'logica-usuario.php';
 </div>
 <?php } ?>
 
-<?php include 'rodape.php'; ?>
+<?php require_once 'rodape.php'; ?>

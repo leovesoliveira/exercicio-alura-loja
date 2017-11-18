@@ -1,7 +1,6 @@
 <?php
-include 'cabecalho.php';
-include 'conecta.php';
-include 'banco-produto.php';
+require_once 'cabecalho.php';
+require_once 'banco-produto.php';
 
 $id = $_POST['id'];
 $nome = $_POST['nome'];
@@ -24,5 +23,5 @@ if (editaProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado
 <p class="text-danger">Não foi possível editar o produto <?php echo $nome; ?>: <?php echo $msgError; ?></p>
 <?php
 }
-include 'rodape.php';
+require_once 'rodape.php';
 ?>

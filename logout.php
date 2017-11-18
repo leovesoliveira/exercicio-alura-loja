@@ -1,5 +1,5 @@
 <?php
-include 'logica-usuario.php';
+require_once 'logica-usuario.php';
 
 logout();
 $_SESSION["warning"] = "Você saiu do sistema!";
