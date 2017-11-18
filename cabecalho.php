@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <title>Leoves'Store</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <meta charset="UTF-8">
 </head>
 <body>
     <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">

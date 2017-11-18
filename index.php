@@ -3,21 +3,13 @@ include 'cabecalho.php';
 include 'logica-usuario.php';
 ?>
 
-<?php if (isset($_GET["falhaDeSeguranca"])) : ?>
-<div class="alert alert-danger text-center" role="alert">Você não tem acesso a essa funcionalidade!</div>
-<?php endif ?>
+<?php if (isset($_SESSION["danger"])) : ?>
+<div class="alert alert-danger text-center" role="alert"><?= $_SESSION["danger"] ?></div>
+<?php unset($_SESSION["danger"]); endif ?>
 
-<?php if (isset($_GET["logout"]) && $_GET["logout"]==true) : ?>
-<p class="alert alert-warning text-center">Você saiu do sistema!</p>
-<?php endif ?>
-
-<?php if (isset($_GET["login"]) && $_GET["login"]==true) : ?>
-<p class="alert alert-success text-center">Logado com sucesso!</p>
-<?php endif ?>
-
-<?php if (isset($_GET["login"]) && $_GET["login"]==false) : ?>
-<p class="alert alert-danger text-center">Usuário ou senha inválido!</p>
-<?php endif ?>
+<?php if (isset($_SESSION["success"])) : ?>
+<p class="alert alert-success text-center"><?= $_SESSION["success"] ?></p>
+<?php unset($_SESSION["success"]); endif ?>
 
 <h1>Olá Mundo, Bem Vindo a Leoves'Store!</h1>
 

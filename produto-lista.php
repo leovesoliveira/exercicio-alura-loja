@@ -7,13 +7,11 @@ include 'logica-usuario.php';
 verificaUsuario();
 
 $produtos = listaProdutos($conexao);
+?>
 
-if (array_key_exists("excluido", $_GET) && $_GET['excluido'] == true) :
-?>
-    <p class="alert-success">Produto removido com sucesso!</p>
-<?php
-endif
-?>
+<?php if (isset($_SESSION["success"])) : ?>
+<p class="alert alert-success text-center"><?= $_SESSION["success"] ?></p>
+<?php unset($_SESSION["success"]); endif ?>
 
 <table class="table table-striped table-bordered">
     <thead class="thead-dark">
