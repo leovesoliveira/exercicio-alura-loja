@@ -18,12 +18,12 @@ if (array_key_exists('usado', $_POST)) {
 
 if (insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado)) {
 ?>
-<p class="text-success">Produto <?php echo $nome; ?>, de valor R$ <?php echo $preco; ?>, adicionado com sucesso!</p>
+<div class="alert alert-success text-center" role="alert">Produto <strong><?php echo $nome; ?></strong>, de valor R$ <strong><?php echo $preco; ?></strong>, adicionado com sucesso!</div>
 <?php
 } else {
     $msgError = mysqli_error($conexao);
 ?>
-<p class="text-danger">Produto <?php echo $nome; ?> não foi adicionado: <?php echo $msgError; ?></p>
+<div class="alert alert-danger text-center">Produto <strong><?php echo $nome; ?></strong> não foi adicionado: <strong><?php echo $msgError; ?></strong></div>
 <?php
 }
 include 'rodape.php';
