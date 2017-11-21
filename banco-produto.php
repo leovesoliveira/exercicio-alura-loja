@@ -1,5 +1,6 @@
 <?php
 require_once 'conecta.php';
+require_once 'class/Produto.php';
 
 function listaProdutos($conexao) {
     $produtos = array();
@@ -12,19 +13,19 @@ function listaProdutos($conexao) {
     return $produtos;
 }
 
-function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado) {
-    $nome = mysqli_real_escape_string($conexao, $nome);
-    $preco = mysqli_real_escape_string($conexao, $preco);
-    $descricao = mysqli_real_escape_string($conexao, $descricao);
-    $query = "insert into produtos (nome, preco, descricao, categoria_id, usado) values ('{$nome}', {$preco}, '{$descricao}', {$categoria_id}, {$usado})";
+function insereProduto($conexao, Produto $produto) {
+    $nome = mysqli_real_escape_string($conexao, $produto->nome);
+    $preco = mysqli_real_escape_string($conexao, $produto->preco);
+    $descricao = mysqli_real_escape_string($conexao, $produto->descricao);
+    $query = "insert into produtos (nome, preco, descricao, categoria_id, usado) values ('{$produto->nome}', {$produto->preco}, '{$produto->descricao}', {$produto->categoria_id}, {$produto->usado})";
     return mysqli_query($conexao, $query);
 }
 
-function editaProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado) {
-    $nome = mysqli_real_escape_string($conexao, $nome);
-    $preco = mysqli_real_escape_string($conexao, $preco);
-    $descricao = mysqli_real_escape_string($conexao, $descricao);
-    $query = "update produtos set nome = '{$nome}', preco = {$preco}, descricao = '{$descricao}', categoria_id = {$categoria_id}, usado = {$usado} where id = '{$id}'";
+function editaProduto($conexao, Produto $produto) {
+    $nome = mysqli_real_escape_string($conexao, $produto->nome);
+    $preco = mysqli_real_escape_string($conexao, $produto->preco);
+    $descricao = mysqli_real_escape_string($conexao, $produto->descricao);
+    $query = "update produtos set nome = '{$produto->nome}', preco = {$produto->preco}, descricao = '{$produto->descricao}', categoria_id = {$produto->categoria_id}, usado = {$produto->usado} where id = '{$produto->id}'";
     return mysqli_query($conexao, $query);
 }
 
