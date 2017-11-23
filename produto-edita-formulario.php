@@ -6,14 +6,15 @@ require_once 'banco-produto.php';
 $id = $_GET['id'];
 $produto = buscaProduto($conexao, $id);
 $categorias = listaCategorias($conexao);
-$usado = $produto['usado'] ? "checked='checked'" : "";
+$selecao_usado = $produto->usado ? "checked='checked'" : "";
+$produto->usado = $selecao_usado;
 ?>
 
 <h1>Formulário de Cadastro</h1>
 
 <form class="produto-edita-formulario" action="edita-produto.php" method="post">
-    <input type="hidden" name="id" value="<?= $produto['id'] ?>">
-    
+    <input type="hidden" name="id" value="<?= $produto->id ?>">
+
     <?php include 'produto-formulario-base.php'; ?>
 
     <div class="form-group row">
