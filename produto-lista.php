@@ -13,6 +13,7 @@ $produtos = listaProdutos($conexao);
         <tr>
             <th scope="col">Nome</th>
             <th scope="col">Preço</th>
+            <th scope="col">Desconto</th>
             <th scope="col">Categoria</th>
             <th scope="col">Usado</th>
             <th scope="col">Descrição</th>
@@ -27,6 +28,7 @@ $produtos = listaProdutos($conexao);
         <tr>
             <td><?= $produto->nome ?></td>
             <td><?= $produto->preco ?></td>
+            <td><?= $produto->precoDesconto() ?></td>
             <td><?= $produto->categoria->nome ?></td>
             <td style="font-size: 25px; font-weight: bold; text-align:center;"><?= $produto->usado ? "•" : "" ?></td>
             <td><?= substr($produto->descricao, 0, 30) ?></td>
