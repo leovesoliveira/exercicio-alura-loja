@@ -8,27 +8,27 @@ require_once 'class/Categoria.php';
 verificaUsuario();
 
 $categoria = new Categoria();
-$categoria->id = $_POST["categoria_id"];
+$categoria->setId($_POST["categoria_id"]);
 
 $produto = new Produto();
-$produto->nome = $_POST["nome"];
-$produto->preco = $_POST["preco"];
-$produto->descricao = $_POST["descricao"];
-$produto->categoria = $categoria;
+$produto->setNome($_POST["nome"]);
+$produto->setPreco($_POST["preco"]);
+$produto->setDescricao($_POST["descricao"]);
+$produto->setCategoria($categoria);
 if (array_key_exists('usado', $_POST)) {
-    $produto->usado = "true";
+    $produto->setUsado("true");
 } else {
-    $produto->usado = "false";
+    $produto->setUsado("false");
 }
 
 if (insereProduto($conexao, $produto)) {
 ?>
-<div class="alert alert-success text-center" role="alert">Produto <strong><?php echo $produto->nome; ?></strong> adicionado com sucesso!</div>
+<div class="alert alert-success text-center" role="alert">Produto <strong><?= $produto->getNome(); ?></strong> adicionado com sucesso!</div>
 <?php
 } else {
     $msgError = mysqli_error($conexao);
 ?>
-<div class="alert alert-danger text-center">Produto <strong><?php echo $produto->nome; ?></strong> não foi adicionado: <strong><?php echo $msgError; ?></strong></div>
+<div class="alert alert-danger text-center">Produto <strong><?= $produto->getNome(); ?></strong> não foi adicionado: <strong><?= $msgError; ?></strong></div>
 <?php
 }
 require_once 'rodape.php';
