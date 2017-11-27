@@ -7,11 +7,14 @@ require_once 'class/Categoria.php';
 
 verificaUsuario();
 
+$nome;
+$preco;
 $categoria = new Categoria();
 $categoria->setId(1);
+$descricao;
+$usado;
 
-$produto = new Produto();
-$produto->setCategoria($categoria);
+$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
 
 $categorias = listaCategorias($conexao);
 ?>

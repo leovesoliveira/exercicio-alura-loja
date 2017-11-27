@@ -4,20 +4,19 @@ require_once 'banco-produto.php';
 require_once 'class/Produto.php';
 require_once 'class/Categoria.php';
 
+$nome = $_POST['nome'];
+$preco = $_POST['preco'];
 $categoria = new Categoria();
 $categoria->setId($_POST["categoria_id"]);
-
-$produto = new Produto();
-$produto->setId($_POST['id']);
-$produto->setNome($_POST['nome']);
-$produto->setPreco($_POST['preco']);
-$produto->setDescricao($_POST['descricao']);
-$produto->setCategoria($categoria);
+$descricao = $_POST['descricao'];
 if (array_key_exists('usado', $_POST)) {
-    $produto->setUsado("true");
+    $usado = "true";
 } else {
-    $produto->setUsado("false");
+    $usado = "false";
 }
+
+$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+$produto->setId($_POST['id']);
 
 if (editaProduto($conexao, $produto)) {
 ?>
