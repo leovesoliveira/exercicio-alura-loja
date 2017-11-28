@@ -13,7 +13,7 @@ $produto->setUsado($selecao_usado);
 <h1>Formulário de Cadastro</h1>
 
 <form class="produto-edita-formulario" action="edita-produto.php" method="post">
-    <input type="hidden" name="id" value="<?= $produto->getId() ?>">
+    <input type="hidden" name="id" value="<?= $id ?>">
 
     <?php include 'produto-formulario-base.php'; ?>
 
