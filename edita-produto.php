@@ -1,6 +1,5 @@
 <?php
 require_once 'cabecalho.php';
-require_once 'banco-produto.php';
 require_once 'class/Produto.php';
 require_once 'class/Categoria.php';
 
@@ -18,12 +17,14 @@ if (array_key_exists('usado', $_POST)) {
 $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
 $produto->setId($_POST['id']);
 
-if (editaProduto($conexao, $produto)) {
+$produtoDao = new ProdutoDao($conexao);
+
+if ($produtoDao->editaProduto($produto)) {
 ?>
 <div class="alert alert-success text-center" role="alert">Produto <strong><?= $produto->getNome(); ?></strong> foi editado com sucesso!</div>
 <?php
 } else {
-    $msgError = mysqli_error($conexao);
+    $msgError = mysqli_error($produtoDao->conexao);
 ?>
 <p class="text-danger">Não foi possível editar o produto <?= $produto->getNome(); ?>: <?= $msgError; ?></p>
 <?php

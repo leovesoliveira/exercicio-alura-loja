@@ -7,6 +7,8 @@ require_once 'class/Categoria.php';
 
 verificaUsuario();
 
+$categoriaDao = new CategoriaDao($conexao);
+
 $nome;
 $preco;
 $categoria = new Categoria();
@@ -16,7 +18,7 @@ $usado;
 
 $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
 
-$categorias = listaCategorias($conexao);
+$categorias = $categoriaDao->listaCategorias();
 ?>
 
 <h1>Formulário de Cadastro</h1>

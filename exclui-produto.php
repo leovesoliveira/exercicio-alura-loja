@@ -1,8 +1,10 @@
 <?php
-require_once 'banco-produto.php';
+require_once 'cabecalho.php';
+
+$produtoDao = new ProdutoDao($conexao);
 
 $id = $_POST['id'];
-excluiProduto($conexao, $id);
+$produtoDao->excluiProduto($id);
 
 $_SESSION["success"] = "Produto removido com sucesso!";
 header("Location: produto-lista.php");
