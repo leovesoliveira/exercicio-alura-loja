@@ -35,4 +35,6 @@ class Produto {
 
     public function isUsado() { return $this->usado; }
     public function setUsado($usado) { $this->usado = $usado; }
+
+    public function temCpi() { return $this instanceof Importado; }
 }

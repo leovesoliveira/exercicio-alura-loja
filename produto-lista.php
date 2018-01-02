@@ -17,6 +17,7 @@ $produtos = $produtoDao->listaProdutos();
             <th scope="col">Desconto</th>
             <th scope="col">Categoria</th>
             <th scope="col">Usado</th>
+            <th scope="col"></th>
             <th scope="col">Descrição</th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -32,6 +33,7 @@ $produtos = $produtoDao->listaProdutos();
             <td><?= $produto->precoDesconto() ?></td>
             <td><?= $produto->getCategoria()->getNome() ?></td>
             <td style="font-size: 25px; font-weight: bold; text-align:center;"><?= $produto->isUsado() ? "•" : "" ?></td>
+            <td><?php if ($produto->temCpi()) { echo "CPI: " . $produto->getCpi(); } ?></td>
             <td><?= substr($produto->getDescricao(), 0, 30) ?></td>
             <td><a href="produto-edita-formulario.php?id=<?= $produto->getId() ?>" class="btn btn-primary">Editar</a></td>
             <td>

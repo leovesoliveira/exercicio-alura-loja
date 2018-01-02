@@ -3,18 +3,28 @@ require_once 'cabecalho.php';
 require_once 'class/Produto.php';
 require_once 'class/Categoria.php';
 
-$nome = $_POST['nome'];
-$preco = $_POST['preco'];
 $categoria = new Categoria();
 $categoria->setId($_POST["categoria_id"]);
+
+$nome = $_POST['nome'];
+$preco = $_POST['preco'];
 $descricao = $_POST['descricao'];
+$cpi = $_POST['cpi'];
+$tipoProduto = $_POST['tipoProduto'];
+
 if (array_key_exists('usado', $_POST)) {
     $usado = "true";
 } else {
     $usado = "false";
 }
 
-$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+if ($tipoProduto == "Importado") {
+    $produto = new Importado($nome, $preco, $descricao, $categoria, $usado);
+    $produto->setCpi($cpi);
+} else {
+    $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+}
+
 $produto->setId($_POST['id']);
 
 $produtoDao = new ProdutoDao($conexao);

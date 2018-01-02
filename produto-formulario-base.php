@@ -37,6 +37,29 @@
 </div>
 
 <div class="form-group row">
+    <label for="tipoProduto" class="col-sm-2 col-form-label">Tipo:</label>
+    <div class="col-sm-10">
+        <select name="tipoProduto" id="tipoProduto" class="form-control">
+        <?php
+        $tipos = array("Produto", "Importado");
+        foreach ($tipos as $tipo) :
+            $esseEhOTipo = get_class($produto) == $tipo;
+            $selecaoTipo = $esseEhOTipo ? "selected='selected'" : "";
+        ?>
+            <option value="<?= $tipo ?>" <?= $selecaoTipo ?>><?= $tipo ?></option>
+        <?php endforeach ?>
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="cpi" class="col-sm-2 col-form-label">CPI:<br /><span style="font-size:12px;">(Caso seja Importado)</span></label>
+    <div class="col-sm-10">
+        <input class="form-control" type="text" name="cpi" id="cpi" placeholder="CPI..." value="<?php if ($produto->temCpi()) { echo $produto->getCpi(); } ?>" /><br/>
+    </div>
+</div>
+
+<div class="form-group row">
     <label for="descricao" class="col-sm-2 col-form-label">Descrição:</label>
     <div class="col-sm-10">
         <textarea class="form-control" name="descricao" id="descricao" placeholder="Descrição do Produto..." /><?= $produto->getDescricao() ?></textarea><br/>

@@ -1,5 +1,3 @@
--- Adminer 4.3.1 MySQL dump
-
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
@@ -34,4 +32,5 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- 2017-11-17 04:41:01
+ALTER TABLE produtos ADD COLUMN cpi VARCHAR(255);
+ALTER TABLE produtos ADD COLUMN tipoProduto VARCHAR(255);

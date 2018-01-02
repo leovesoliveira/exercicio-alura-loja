@@ -11,14 +11,22 @@ $categoria->setId($_POST["categoria_id"]);
 $nome = $_POST["nome"];
 $preco = $_POST["preco"];
 $descricao = $_POST["descricao"];
-$categoria = $categoria;
+$cpi = $_POST["cpi"];
+$tipoProduto = $_POST["tipoProduto"];
+
 if (array_key_exists('usado', $_POST)) {
     $usado = "true";
 } else {
     $usado = "false";
 }
 
-$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+if ($tipoProduto == "Importado") {
+    $produto = new Importado($nome, $preco, $descricao, $categoria, $usado);
+    $produto->setCpi($cpi);
+} else {
+    $produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+}
+
 
 $produtoDao = new ProdutoDao($conexao);
 
