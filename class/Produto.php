@@ -37,4 +37,6 @@ class Produto {
     public function setUsado($usado) { $this->usado = $usado; }
 
     public function temCpi() { return $this instanceof Importado; }
+
+    public function calculaImposto() { return $this->preco * 0.195; }
 }

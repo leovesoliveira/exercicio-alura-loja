@@ -14,7 +14,7 @@ $produtos = $produtoDao->listaProdutos();
         <tr>
             <th scope="col">Nome</th>
             <th scope="col">Preço</th>
-            <th scope="col">Desconto</th>
+            <th scope="col">Imposto</th>
             <th scope="col">Categoria</th>
             <th scope="col">Usado</th>
             <th scope="col"></th>
@@ -30,7 +30,7 @@ $produtos = $produtoDao->listaProdutos();
         <tr>
             <td><?= $produto->getNome() ?></td>
             <td><?= $produto->getPreco() ?></td>
-            <td><?= $produto->precoDesconto() ?></td>
+            <td><?= $produto->calculaImposto() ?></td>
             <td><?= $produto->getCategoria()->getNome() ?></td>
             <td style="font-size: 25px; font-weight: bold; text-align:center;"><?= $produto->isUsado() ? "•" : "" ?></td>
             <td><?php if ($produto->temCpi()) { echo "CPI: " . $produto->getCpi(); } ?></td>
