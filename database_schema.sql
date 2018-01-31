@@ -34,3 +34,6 @@ CREATE TABLE `usuarios` (
 
 ALTER TABLE produtos ADD COLUMN cpi VARCHAR(255);
 ALTER TABLE produtos ADD COLUMN tipoProduto VARCHAR(255);
+
+ALTER TABLE produtos ADD COLUMN codigoChines VARCHAR(255);
+ALTER TABLE produtos ADD COLUMN codigoRusso VARCHAR(255);

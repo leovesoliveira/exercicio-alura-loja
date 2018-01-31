@@ -1,5 +1,6 @@
 <?php
 class Produto {
+
     private $id;
     private $nome;
     private $preco;
@@ -15,12 +16,22 @@ class Produto {
         $this->usado = $usado;
     }
 
-    public function getId() { return $this->id; }
-    public function setId($id) { $this->id = $id; }
+    public function getId() {
+        return $this->id;
+    }
 
-    public function getNome() { return $this->nome; }
+    public function setId($id) {
+        $this->id = $id;
+    }
 
-    public function getPreco() { return $this->preco; }
+    public function getNome() {
+        return $this->nome;
+    }
+
+    public function getPreco() {
+        return $this->preco;
+    }
+
     public function precoDesconto($valor = 0.1) {
     	if ($valor > 0 && $valor <= 0.5) {
         	return $this->preco -= $this->preco * $valor;
@@ -29,14 +40,49 @@ class Produto {
         return $this->preco;
     }
 
-    public function getDescricao() { return $this->descricao; }
+    public function getDescricao() {
+        return $this->descricao;
+    }
 
-    public function getCategoria() { return $this->categoria; }
+    public function getCategoria() {
+        return $this->categoria;
+    }
 
-    public function isUsado() { return $this->usado; }
-    public function setUsado($usado) { $this->usado = $usado; }
+    public function isUsado() {
+        return $this->usado;
+    }
 
-    public function temCpi() { return $this instanceof Importado; }
+    public function setUsado($usado) {
+        $this->usado = $usado;
+    }
 
-    public function calculaImposto() { return $this->preco * 0.195; }
+    public function temCpi() {
+        return $this instanceof Importado;
+    }
+
+    public function calculaImposto() {
+        return $this->preco * 0.195;
+    }
+
+    public function temCodigoChines() {
+        return $this instanceof ImportadoChina;
+    }
+
+    public function temCodigoRusso() {
+        return $this instanceof ImportadoRussia;
+    }
+
+    public function atualizaBaseadoEm($params) {
+        if ($this->temCpi()) {
+            $this->setCpi($params["cpi"]);
+        }
+
+        if ($this->temCodigoChines()) {
+            $this->setCodigoChines($params["codigoChines"]);
+        }
+
+        if ($this->temCodigoRusso()) {
+            $this->setCodigoRusso($params["codigoRusso"]);
+        }
+    }
 }

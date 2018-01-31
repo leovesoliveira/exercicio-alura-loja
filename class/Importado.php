@@ -1,5 +1,5 @@
 <?php
-class Importado extends Produto {
+abstract class Importado extends Produto {
     private $cpi;
 
     public function getCpi() { return $this->cpi; }
