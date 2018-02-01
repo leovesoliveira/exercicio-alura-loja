@@ -1,6 +1,6 @@
 <?php
 class ProdutoFactory {
-	private $classes = array("Produto", "ImportadoRussia", "ImportadoChina");
+	private $classes = array("ImportadoRussia", "ImportadoChina");
 
 	public function criaPor($tipoProduto, $params) {
 
@@ -14,6 +14,6 @@ class ProdutoFactory {
 			return new $tipoProduto($nome, $preco, $descricao, $categoria, $usado);
 		}
 
-		return new Produto($nome, $preco, $descricao, $categoria, $usado);
+		return new ImportadoChina($nome, $preco, $descricao, $categoria, $usado);
 	}
 }

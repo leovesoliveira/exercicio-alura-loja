@@ -16,7 +16,7 @@ $categoria->setId(1);
 $descricao;
 $usado;
 
-$produto = new Produto($nome, $preco, $descricao, $categoria, $usado);
+$produto = new ImportadoChina($nome, $preco, $descricao, $categoria, $usado);
 
 $categorias = $categoriaDao->listaCategorias();
 ?>

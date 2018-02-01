@@ -46,19 +46,15 @@
     <div class="col-sm-10">
         <select name="tipoProduto" id="tipoProduto" class="form-control">
         <?php
-        $tipos = array("Produto", "Importado China", "Importado Russia");
+        $tipos = array("Importado China", "Importado Russia");
         foreach ($tipos as $tipo) :
             $tipoSemEspaco = str_replace(' ', '', $tipo);
             $esseEhOTipo = get_class($produto) == $tipoSemEspaco;
             $selecaoTipo = $esseEhOTipo ? "selected='selected'" : "";
         ?>
-        <?php if ($tipo == "Importado China") : ?>
-            <optgroup label="Importado">
-        <?php endif ?>
-                <option value="<?= $tipoSemEspaco ?>" <?= $selecaoTipo ?>><?= $tipo ?></option>
-        <?php if ($tipo == "Importado Russia") : ?>
-            </optgroup>
-        <?php endif ?>
+            <option value="<?= $tipoSemEspaco ?>" <?= $selecaoTipo ?>>
+                <?= $tipo ?>                    
+            </option>
         <?php endforeach ?>
         </select>
     </div>

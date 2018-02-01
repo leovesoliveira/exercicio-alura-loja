@@ -1,5 +1,5 @@
 <?php
-class Produto {
+abstract class Produto {
 
     private $id;
     private $nome;
@@ -72,17 +72,5 @@ class Produto {
         return $this instanceof ImportadoRussia;
     }
 
-    public function atualizaBaseadoEm($params) {
-        if ($this->temCpi()) {
-            $this->setCpi($params["cpi"]);
-        }
-
-        if ($this->temCodigoChines()) {
-            $this->setCodigoChines($params["codigoChines"]);
-        }
-
-        if ($this->temCodigoRusso()) {
-            $this->setCodigoRusso($params["codigoRusso"]);
-        }
-    }
+    abstract function atualizaBaseadoEm($params);
 }
